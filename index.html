@@ -1,0 +1,687 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Undangan Pernikahan | Putri & Mustakim</title>
+
+<meta name="description" content="Undangan Pernikahan Eka Putri Dewi Prastika & Mochammad Mustakim">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5efe5;
+    color: #3d3027;
+    line-height: 1.7;
+}
+
+section {
+    padding: 75px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.script {
+    font-family: 'Great Vibes', cursive;
+}
+
+.cover {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(54,39,28,.60), rgba(54,39,28,.60)),
+        radial-gradient(circle at center, #9b8060, #35291f);
+    color: white;
+}
+
+.cover:before,
+.cover:after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+}
+
+.cover:before {
+    top: -130px;
+    left: -130px;
+}
+
+.cover:after {
+    bottom: -130px;
+    right: -130px;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+}
+
+.small-title {
+    letter-spacing: 4px;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.cover h1 {
+    font-size: clamp(52px, 11vw, 100px);
+    line-height: .9;
+    font-weight: 500;
+}
+
+.cover .amp {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.cover-date {
+    margin-top: 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.open-btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 12px 28px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.open-btn:hover {
+    background: white;
+    color: #4a382b;
+}
+
+.intro {
+    text-align: center;
+    background: #faf7f1;
+}
+
+.quote {
+    max-width: 650px;
+    margin: 25px auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+}
+
+.names {
+    text-align: center;
+}
+
+.names h2 {
+    font-size: 52px;
+    font-weight: 500;
+}
+
+.parent {
+    margin: 10px 0 35px;
+    font-size: 14px;
+}
+
+.divider {
+    width: 100px;
+    height: 1px;
+    background: #9a7955;
+    margin: 25px auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title .script {
+    font-size: 45px;
+    color: #806344;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.event-section {
+    background: #e9dfcf;
+}
+
+.events {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.event-card {
+    background: rgba(255,255,255,.75);
+    padding: 35px 25px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid rgba(120,90,60,.2);
+}
+
+.event-card h3 {
+    font-size: 32px;
+    color: #70563d;
+    margin-bottom: 15px;
+}
+
+.event-card .date {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.event-card .time {
+    margin: 8px 0;
+}
+
+.map-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 20px;
+    background: #70563d;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 13px;
+}
+
+.gallery {
+    background: #faf7f1;
+}
+
+.photo-placeholder {
+    min-height: 250px;
+    border-radius: 10px;
+    background: linear-gradient(135deg,#d8c7ad,#8f7659);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-note {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 13px;
+    color: #786957;
+}
+
+.story {
+    background: #3e3026;
+    color: white;
+    text-align: center;
+}
+
+.story p {
+    max-width: 700px;
+    margin: auto;
+}
+
+.rsvp {
+    background: #e9dfcf;
+    text-align: center;
+}
+
+.rsvp-box {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255,255,255,.75);
+    padding: 35px 25px;
+    border-radius: 10px;
+}
+
+.rsvp-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: #70563d;
+    color: white;
+    text-decoration: none;
+}
+
+.gift {
+    background: #faf7f1;
+    text-align: center;
+}
+
+.bank {
+    max-width: 420px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #eee5d7;
+    border-radius: 10px;
+}
+
+.bank-number {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 8px;
+}
+
+.footer {
+    padding: 60px 20px;
+    text-align: center;
+    background: #30251e;
+    color: white;
+}
+
+.footer .script {
+    font-size: 50px;
+}
+
+.music-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: #70563d;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,.25);
+}
+
+@media(max-width:700px) {
+    .events {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 18px;
+    }
+
+    .names h2 {
+        font-size: 42px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- COVER -->
+<section class="cover" id="home">
+    <div class="cover-content">
+
+        <div class="small-title">
+            The Wedding Of
+        </div>
+
+        <h1 class="script">
+            Putri
+        </h1>
+
+        <div class="amp">&</div>
+
+        <h1 class="script">
+            Mustakim
+        </h1>
+
+        <div class="cover-date">
+            SABTU & MINGGU • SEPTEMBER 2026
+        </div>
+
+        <a href="#undangan" class="open-btn">
+            Buka Undangan
+        </a>
+
+    </div>
+</section>
+
+
+<!-- INTRO -->
+<section class="intro" id="undangan">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="script">Assalamu'alaikum</div>
+            <h2>Warahmatullahi Wabarakatuh</h2>
+        </div>
+
+        <p class="quote">
+            Dengan memohon rahmat dan ridho Allah SWT,
+            kami bermaksud menyelenggarakan pernikahan
+            putra-putri kami.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="names">
+
+            <h2 class="script">
+                Eka Putri Dewi Prastika
+            </h2>
+
+            <p class="parent">
+                Putri dari Bapak Legiman (Alm.)<br>
+                & Ibu Misiya
+            </p>
+
+            <div class="amp">&</div>
+
+            <h2 class="script">
+                Mochammad Mustakim
+            </h2>
+
+            <p class="parent">
+                Putra dari Bapak Dardiri (Alm.)<br>
+                & Ibu Ponimah
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENT -->
+<section class="event-section">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="script">Save The Date</div>
+            <h2>Waktu & Tempat</h2>
+        </div>
+
+        <div class="events">
+
+            <!-- AKAD -->
+            <div class="event-card">
+
+                <h3>Akad Nikah</h3>
+
+                <div class="date">
+                    Sabtu, 26 September 2026
+                </div>
+
+                <div class="time">
+                    Pukul 09.00 WIB
+                </div>
+
+                <p>
+                    Kediaman Mempelai Wanita
+                </p>
+
+                <p>
+                    Dusun Candi Wetan RT 02 RW 04<br>
+                    Desa Candipuro, Kecamatan Candipuro
+                </p>
+
+                <a
+                    class="map-btn"
+                    href="https://maps.app.goo.gl/QPgrKMHuP1JrmKyz7"
+                    target="_blank">
+                    📍 Buka Google Maps
+                </a>
+
+            </div>
+
+
+            <!-- RESEPSI -->
+            <div class="event-card">
+
+                <h3>Resepsi</h3>
+
+                <div class="date">
+                    Minggu, 27 September 2026
+                </div>
+
+                <div class="time">
+                    Pukul 13.00 WIB – Selesai
+                </div>
+
+                <p>
+                    Kediaman Mempelai Pria
+                </p>
+
+                <p>
+                    Jl. Kyai Sukaemi<br>
+                    Desa Tukum, Kecamatan Tekung<br>
+                    Kabupaten Lumajang<br>
+                    Selatan Bidan Sayuti
+                </p>
+
+                <a
+                    class="map-btn"
+                    href="https://maps.app.goo.gl/QPgrKMHuP1JrmKyz7"
+                    target="_blank">
+                    📍 Buka Google Maps
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section class="gallery">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="script">Our Moment</div>
+            <h2>Galeri Foto</h2>
+        </div>
+
+        <p class="gallery-note">
+            Foto akan kita masukkan pada tahap berikutnya.
+        </p>
+
+        <div class="photo-placeholder">
+            📷<br>
+            GALERI FOTO MEMPELAI
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STORY -->
+<section class="story">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="script">Our Story</div>
+            <h2>Kisah Kami</h2>
+        </div>
+
+        <p>
+            Dua insan dipertemukan dalam sebuah perjalanan,
+            kemudian memilih untuk melangkah bersama
+            dalam ikatan pernikahan.
+        </p>
+
+        <br>
+
+        <p>
+            Semoga Allah SWT memberikan keberkahan,
+            kebahagiaan, dan ketenteraman dalam
+            perjalanan rumah tangga kami.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- RSVP -->
+<section class="rsvp">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="script">Will You Join Us?</div>
+            <h2>Konfirmasi Kehadiran</h2>
+        </div>
+
+        <div class="rsvp-box">
+
+            <p>
+                Merupakan suatu kehormatan bagi kami
+                apabila Bapak/Ibu/Saudara/i berkenan
+                hadir dan memberikan doa restu.
+            </p>
+
+            <a
+                class="rsvp-btn"
+                href="https://wa.me/62XXXXXXXXXX?text=Assalamu%27alaikum%2C%20saya%20ingin%20mengkonfirmasi%20kehadiran%20di%20pernikahan%20Putri%20dan%20Mustakim."
+                target="_blank">
+                💬 Konfirmasi via WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GIFT -->
+<section class="gift">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="script">Wedding Gift</div>
+            <h2>Hadiah Pernikahan</h2>
+        </div>
+
+        <p>
+            Doa restu Anda merupakan hadiah terindah
+            bagi kami.
+        </p>
+
+        <div class="bank">
+
+            <strong>
+                Rekening Mempelai
+            </strong>
+
+            <div class="bank-number">
+                BELUM DIISI
+            </div>
+
+            <small>
+                Nama Bank & nomor rekening akan
+                ditambahkan kemudian.
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="script">
+        Putri & Mustakim
+    </div>
+
+    <p>
+        Terima kasih atas doa dan restunya.
+    </p>
+
+    <br>
+
+    <small>
+        © 2026 Wedding Invitation
+    </small>
+
+</footer>
+
+
+<!-- MUSIC -->
+<button class="music-btn" onclick="toggleMusic()" id="musicButton">
+    ♪
+</button>
+
+<audio id="music" loop>
+    <!-- Musik akan kita masukkan kemudian -->
+</audio>
+
+
+<script>
+
+let playing = false;
+
+function toggleMusic() {
+
+    const music = document.getElementById("music");
+    const button = document.getElementById("musicButton");
+
+    if (playing) {
+
+        music.pause();
+        button.innerHTML = "♪";
+        playing = false;
+
+    } else {
+
+        music.play().catch(() => {
+            alert("Musik belum tersedia. Nanti kita tambahkan file musik.");
+        });
+
+        button.innerHTML = "Ⅱ";
+        playing = true;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
