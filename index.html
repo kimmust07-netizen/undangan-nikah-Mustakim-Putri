@@ -514,8 +514,7 @@ h1, h2, h3 {
         </p>
 
         <div class="photo-placeholder">
-            <img src="PGN_7720.jpg.jpeg" alt="Foto Mempelai" style="max-width: 100%; height: auto;"> 
-            <img src="WhatsApp Image 2026-09-16 at 23.19.46.jpeg" alt="Foto 1" style="max-width: 100%; height: auto;"> 
+            <img src="WhatsApp Image 2026-09-16 at 23.19.46.jpeg" alt="Foto Mempelai" style="max-width: 100%; height: auto;"> 
         </div>
 
     </div>
@@ -680,6 +679,19 @@ function toggleMusic() {
 }
 
 </script>
+    
+<script>
+  // 1. Mengambil parameter "to" dari URL browser
+  const urlParams = new URLSearchParams(window.location.search);
+  const namaTamu = urlParams.get('to');
 
+  // 2. Menampilkan nama ke elemen HTML target
+  if (namaTamu) {
+    // Ganti 'nama-id' dengan ID elemen tempat nama tamu ingin ditampilkan
+    // Contoh di HTML: <h2 id="nama-id">Nama Tamu</h2>
+    document.getElementById('nama-id').innerText = namaTamu;
+  }
+</script>
+    
 </body>
 </html>
