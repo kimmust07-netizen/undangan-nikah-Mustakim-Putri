@@ -22,9 +22,7 @@ html {
 }
 
 body {
-    <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-    <h2 id="nama-tamu">Nama Tamu</h2>
-    
+   
     font-family: 'Poppins', sans-serif;
     background: #f5efe5;
     color: #3d3027;
@@ -335,12 +333,19 @@ h1, h2, h3 {
     .names h2 {
         font-size: 42px;
     }
+    /* Mengunci scroll pada body */
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
 }
 </style>
 </head>
 
 <body>
-
+<body class="no-scroll">
+    <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+    <h2 id="nama-tamu">Nama Tamu</h2>
 <!-- COVER -->
 <section class="cover" id="home">
     <div class="cover-content">
@@ -360,10 +365,11 @@ h1, h2, h3 {
         </h1>
 
         <div class="cover-date">
-            SABTU & MINGGU • SEPTEMBER 2026
+            Resepsi
+            AHAD • 27 SEPTEMBER 2026
         </div>
 
-        <a href="#undangan" class="open-btn">
+        <a href="#undangan" class="open-btn" id="btn-buka">
             Buka Undangan
         </a>
 
@@ -694,6 +700,14 @@ function toggleMusic() {
     // Contoh di HTML: <h2 id="nama-id">Nama Tamu</h2>
     document.getElementById('nama-id').innerText = namaTamu;
   }
+</script>
+<script>
+    const tombolBuka = document.getElementById('btn-buka');
+
+    tombolBuka.addEventListener('click', function() {
+        // Menghapus class no-scroll agar halaman bisa di-scroll kembali
+        document.body.classList.remove('no-scroll');
+    });
 </script>
     
 </body>
