@@ -370,18 +370,16 @@ body.no-scroll {
         <a href="#undangan" class="open-btn" id="btn-buka">
             Buka Undangan
         </a>
-<body class="no-scroll">
-    <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-    <h2 id="nama-tamu">Nama Tamu</h2>
-  <!-- Sebelum -->
-<p>Nama Tamu</p>
 
-<!-- Sesudah diubah -->
-<p><span id="nama-tamu">Nama Tamu</span></p>
     
     </div>
 
     
+</section>
+
+<section id="salam">
+  <h2>Halo, <span id="nama-tamu">Tamu Undangan</span>!</h2>
+  <p>Dengan hormat, kami mengundang Anda untuk hadir di acara kami.</p>
 </section>
 
 
@@ -598,6 +596,20 @@ body.no-scroll {
     </div>
 
 </section>
+    
+<section id="kartu-ucapan">
+  <h2>Kirim Kartu Ucapan</h2>
+  <form id="form-ucapan">
+    <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+    <textarea id="pesan" name="pesan" placeholder="Tulis ucapan Anda..." required></textarea>
+    <button type="submit">Kirim Ucapan</button>
+  </form>
+
+  <div id="daftar-ucapan">
+    <h3>Ucapan dari Tamu</h3>
+    <ul id="list-ucapan"></ul>
+  </div>
+</section>
 
 
 <!-- GIFT -->
@@ -698,16 +710,15 @@ function toggleMusic() {
 </script>
     
 <script>
-  // 1. Mengambil parameter "to" dari URL browser
-  const urlParams = new URLSearchParams(window.location.search);
-  const namaTamu = urlParams.get('to');
+  document.addEventListener("DOMContentLoaded", function() {
+  const params = new URLSearchParams(window.location.search);
+  const nama = params.get("nama");
 
-  // 2. Menampilkan nama ke elemen HTML target
-  if (namaTamu) {
-    // Ganti 'nama-id' dengan ID elemen tempat nama tamu ingin ditampilkan
-    // Contoh di HTML: <h2 id="nama-id">Nama Tamu</h2>
-    document.getElementById('nama-id').innerText = namaTamu;
+  if (nama) {
+    document.getElementById("nama-tamu").textContent = decodeURIComponent(nama);
   }
+});
+
 </script>
 <script>
     const tombolBuka = document.getElementById('btn-buka');
