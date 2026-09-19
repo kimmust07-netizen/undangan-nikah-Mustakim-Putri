@@ -21,8 +21,13 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Kunci scroll halaman secara umum (global) */
+body.no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
 body {
-   
     font-family: 'Poppins', sans-serif;
     background: #f5efe5;
     color: #3d3027;
@@ -119,6 +124,7 @@ h1, h2, h3 {
     text-decoration: none;
     border-radius: 30px;
     transition: .3s;
+    cursor: pointer;
 }
 
 .open-btn:hover {
@@ -333,16 +339,12 @@ h1, h2, h3 {
     .names h2 {
         font-size: 42px;
     }
-    /* Mengunci scroll pada body */
-body.no-scroll {
-    overflow: hidden;
-    height: 100vh;
-}
 }
 </style>
 </head>
 
-<body>
+<!-- Menambahkan class no-scroll secara langsung saat halaman pertama diproses -->
+<body class="no-scroll">
 
 <!-- COVER -->
 <section class="cover" id="home">
@@ -367,28 +369,20 @@ body.no-scroll {
             AHAD • 27 SEPTEMBER 2026
         </div>
 
+        <section id="salam" style="padding: 20px 0;">
+            <h2>Kepada Yth, <span id="nama-tamu">Tamu Undangan</span>!</h2>
+        </section>
+
         <a href="#undangan" class="open-btn" id="btn-buka">
             Buka Undangan
         </a>
-        
-<section id="salam">
-  <h2>Kepada Yth,
-      <span id="nama-tamu">Tamu Undangan</span>!</h2>
-     <p></p>
-</section>
-    
+
     </div>
-
-    
 </section>
-
-
 
 <!-- INTRO -->
 <section class="intro" id="undangan">
-
     <div class="container">
-
         <div class="section-title">
             <div class="script">Assalamu'alaikum</div>
             <h2>Warahmatullahi Wabarakatuh</h2>
@@ -403,7 +397,6 @@ body.no-scroll {
         <div class="divider"></div>
 
         <div class="names">
-
             <h2 class="script">
                 Eka Putri Dewi Prastika
             </h2>
@@ -423,313 +416,179 @@ body.no-scroll {
                 Putra dari Bapak Dardiri (Alm.)<br>
                 & Ibu Ponimah
             </p>
-
         </div>
-
     </div>
-
 </section>
-
 
 <!-- EVENT -->
 <section class="event-section">
-
     <div class="container">
-
         <div class="section-title">
             <div class="script">Save The Date</div>
             <h2>Waktu & Tempat</h2>
         </div>
 
         <div class="events">
-
             <!-- AKAD -->
             <div class="event-card">
-
                 <h3>Akad Nikah</h3>
-
-                <div class="date">
-                    Sabtu, 26 September 2026
-                </div>
-
-                <div class="time">
-                    Pukul 09.00 WIB
-                </div>
-
-                <p>
-                    Kediaman Mempelai Wanita
-                </p>
-
-                <p>
-                    Dusun Candi Wetan RT 02 RW 04<br>
-                    Desa Candipuro, Kecamatan Candipuro
-                </p>
-
-                <a
-                    class="map-btn"
-                    href="https://maps.app.goo.gl/HQbMqdsWh6MJp8GS7"
-                    target="_blank">
-                    📍 Buka Google Maps
-                </a>
-
+                <div class="date">Sabtu, 26 September 2026</div>
+                <div class="time">Pukul 09.00 WIB</div>
+                <p>Kediaman Mempelai Wanita</p>
+                <p>Dusun Candi Wetan RT 02 RW 04<br>Desa Candipuro, Kecamatan Candipuro</p>
+                <a class="map-btn" href="https://maps.app.goo.gl/HQbMqdsWh6MJp8GS7" target="_blank">📍 Buka Google Maps</a>
             </div>
-
 
             <!-- RESEPSI -->
             <div class="event-card">
-
                 <h3>Resepsi</h3>
-
-                <div class="date">
-                    Minggu, 27 September 2026
-                </div>
-
-                <div class="time">
-                    Pukul 13.00 WIB – Selesai
-                </div>
-
-                <p>
-                    Kediaman Mempelai Pria
-                </p>
-
-                <p>
-                    Jl. Kyai Sukaemi<br>
-                    Desa Tukum, Kecamatan Tekung<br>
-                    Kabupaten Lumajang<br>
-                    Selatan Bidan Sayuti
-                </p>
-
-                <a
-                    class="map-btn"
-                    href="https://maps.app.goo.gl/QPgrKMHuP1JrmKyz7"
-                    target="_blank">
-                    📍 Buka Google Maps
-                </a>
-
+                <div class="date">Minggu, 27 September 2026</div>
+                <div class="time">Pukul 13.00 WIB – Selesai</div>
+                <p>Kediaman Mempelai Pria</p>
+                <p>Jl. Kyai Sukaemi<br>Desa Tukum, Kecamatan Tekung<br>Kabupaten Lumajang<br>Selatan Bidan Sayuti</p>
+                <a class="map-btn" href="https://maps.app.goo.gl/QPgrKMHuP1JrmKyz7" target="_blank">📍 Buka Google Maps</a>
             </div>
-
         </div>
-
     </div>
-
 </section>
-
 
 <!-- GALLERY -->
 <section class="gallery">
-
     <div class="container">
-
         <div class="section-title">
             <div class="script">Our Moment</div>
             <h2>Galeri Foto</h2>
         </div>
 
-        <p class="gallery-note">
-            Foto akan kita masukkan pada tahap berikutnya.
-        </p>
-
         <div class="photo-placeholder">
             <img src="WhatsApp Image 2026-09-16 at 23.19.46.jpeg" alt="Foto Mempelai" style="max-width: 100%; height: auto;"> 
         </div>
-
     </div>
-
 </section>
-
 
 <!-- STORY -->
 <section class="story">
-
     <div class="container">
-
         <div class="section-title">
             <div class="script">Our Story</div>
             <h2>Kisah Kami</h2>
         </div>
-
-        <p>
-            Dua insan dipertemukan dalam sebuah perjalanan,
-            kemudian memilih untuk melangkah bersama
-            dalam ikatan pernikahan.
-        </p>
-
+        <p>Dua insan dipertemukan dalam sebuah perjalanan, kemudian memilih untuk melangkah bersama dalam ikatan pernikahan.</p>
         <br>
-
-        <p>
-            Semoga Allah SWT memberikan keberkahan,
-            kebahagiaan, dan ketenteraman dalam
-            perjalanan rumah tangga kami.
-        </p>
-
+        <p>Semoga Allah SWT memberikan keberkahan, kebahagiaan, dan ketenteraman dalam perjalanan rumah tangga kami.</p>
     </div>
-
 </section>
-
 
 <!-- RSVP -->
 <section class="rsvp">
-
     <div class="container">
-
         <div class="section-title">
             <div class="script">Will You Join Us?</div>
             <h2>Konfirmasi Kehadiran</h2>
         </div>
 
         <div class="rsvp-box">
-
-            <p>
-                Merupakan suatu kehormatan bagi kami
-                apabila Bapak/Ibu/Saudara/i berkenan
-                hadir dan memberikan doa restu.
-            </p>
-
-            <a
-                class="rsvp-btn"
-                href="https://wa.me/6287765273073?text=Assalamu%27alaikum%2C%20saya%20ingin%20mengkonfirmasi%20kehadiran%20di%20pernikahan%20Putri%20dan%20Mustakim."
-                target="_blank">
-                💬 Konfirmasi via WhatsApp
-            </a>
-
+            <p>Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+            <a class="rsvp-btn" href="https://wa.me/6287765273073?text=Assalamu%27alaikum%2C%20saya%20ingin%20mengkonfirmasi%20kehadiran%20di%20pernikahan%20Putri%20dan%20Mustakim." target="_blank">💬 Konfirmasi via WhatsApp</a>
         </div>
-
     </div>
-
 </section>
-    
+
 <section id="kartu-ucapan">
-  <h2>Kirim Kartu Ucapan</h2>
-  <form id="form-ucapan">
-    <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
-    <textarea id="pesan" name="pesan" placeholder="Tulis ucapan Anda..." required></textarea>
-    <button type="submit">Kirim Ucapan</button>
-  </form>
+    <h2>Kirim Kartu Ucapan</h2>
+    <form id="form-ucapan">
+        <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+        <textarea id="pesan" name="pesan" placeholder="Tulis ucapan Anda..." required></textarea>
+        <button type="submit">Kirim Ucapan</button>
+    </form>
 
-  <div id="daftar-ucapan">
-    <h3>Ucapan dari Tamu</h3>
-    <ul id="list-ucapan"></ul>
-  </div>
+    <div id="daftar-ucapan">
+        <h3>Ucapan dari Tamu</h3>
+        <ul id="list-ucapan"></ul>
+    </div>
 </section>
-
 
 <!-- GIFT -->
 <section class="gift">
-
     <div class="container">
-
         <div class="section-title">
             <div class="script">Wedding Gift</div>
             <h2>Hadiah Pernikahan</h2>
         </div>
 
-        <p>
-            Doa restu Anda merupakan hadiah terindah
-            bagi kami.
-        </p>
+        <p>Doa restu Anda merupakan hadiah terindah bagi kami.</p>
 
         <div class="bank">
-
-            <strong>
-                Rekening Mempelai Pria
-            </strong>
-
-            <div class="bank-number">
-                3660428185
-            </div>
-
-            <small>
-                Mochammad Mustakim <br>
-                Bank BCA
-            </small>
-
+            <strong>Rekening Mempelai Pria</strong>
+            <div class="bank-number">3660428185</div>
+            <small>Mochammad Mustakim <br> Bank BCA</small>
         </div>
-
     </div>
-
 </section>
-
 
 <!-- FOOTER -->
 <footer class="footer">
-
-    <div class="script">
-        Putri & Mustakim
-    </div>
-
-    <p>
-        Terima kasih atas doa dan restunya.
-    </p>
-
+    <div class="script">Putri & Mustakim</div>
+    <p>Terima kasih atas doa dan restunya.</p>
     <br>
-
-    <small>
-        © 2026 Wedding Invitation
-    </small>
-
+    <small>© 2026 Wedding Invitation</small>
 </footer>
 
-
 <!-- MUSIC -->
-<button class="music-btn" onclick="toggleMusic()" id="musicButton">
-    ♪
-</button>
-
-<audio id="music" src="lagu 1.mp3" loop>
-    
-</audio>
-
+<button class="music-btn" onclick="toggleMusic()" id="musicButton">♪</button>
+<audio id="music" src="lagu 1.mp3" loop></audio>
 
 <script>
-
 let playing = false;
 
 function toggleMusic() {
-
     const music = document.getElementById("music");
     const button = document.getElementById("musicButton");
 
     if (playing) {
-
         music.pause();
         button.innerHTML = "♪";
         playing = false;
-
     } else {
-
-        music.play().catch(() => {
-            alert("Musik belum tersedia. Nanti kita tambahkan file musik.");
+        music.play().then(() => {
+            button.innerHTML = "Ⅱ";
+            playing = true;
+        }).catch(() => {
+            console.log("Autoplay dicegah oleh browser.");
         });
-
-        button.innerHTML = "Ⅱ";
-        playing = true;
-
     }
-
 }
 
-</script>
-    
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-  const params = new URLSearchParams(window.location.search);
-  const nama = params.get("nama");
+document.addEventListener("DOMContentLoaded", function() {
+    // Ambil Parameter Nama Tamu dari URL
+    const params = new URLSearchParams(window.location.search);
+    const nama = params.get("nama");
 
-  if (nama) {
-    document.getElementById("nama-tamu").textContent = decodeURIComponent(nama);
-  }
-});
+    if (nama) {
+        document.getElementById("nama-tamu").textContent = decodeURIComponent(nama);
+    }
 
-</script>
-<script>
+    // Event Listener Klik Tombol Buka Undangan
     const tombolBuka = document.getElementById('btn-buka');
 
-    tombolBuka.addEventListener('click', function() {
-        // Menghapus class no-scroll agar halaman bisa di-scroll kembali
+    tombolBuka.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // 1. Lepas kunci scroll
         document.body.classList.remove('no-scroll');
+
+        // 2. Mainkan musik secara otomatis
+        if (!playing) {
+            toggleMusic();
+        }
+
+        // 3. Gulir halaman secara halus ke bagian isi undangan
+        document.getElementById('undangan').scrollIntoView({
+            behavior: 'smooth'
+        });
     });
+});
 </script>
-    
+
 </body>
-    
 </html>
