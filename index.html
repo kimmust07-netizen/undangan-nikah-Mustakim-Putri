@@ -588,6 +588,74 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // 1. Ambil elemen yang dibutuhkan
+    const formUcapan = document.getElementById('form-ucapan');
+    const inputNama = document.getElementById('nama');
+    const inputPesan = document.getElementById('pesan');
+    const listUcapan = document.getElementById('list-ucapan');
+
+    // Function untuk menampilkan daftar ucapan dari localStorage
+    function tampilkanUcapan() {
+        listUcapan.innerHTML = '';
+        const daftarData = JSON.parse(localStorage.getItem('ucapanTamu')) || [];
+        
+        if (daftarData.length === 0) {
+            listUcapan.innerHTML = '<li style="list-style:none; opacity:0.7;">Belum ada ucapan. Silakan jadi yang pertama!</li>';
+            return;
+        }
+
+        daftarData.reverse().forEach(item => {
+            const li = document.createElement('li');
+            li.style.marginBottom = '12px';
+            li.style.listStyle = 'none';
+            li.style.background = '#eee5d7';
+            li.style.padding = '10px 15px';
+            li.style.borderRadius = '8px';
+            li.innerHTML = `<strong>${escapeHtml(item.nama)}</strong><br><p style="margin-top:4px;">${escapeHtml(item.pesan)}</p>`;
+            listUcapan.appendChild(li);
+        });
+    }
+
+    // Helper untuk cegah XSS/Skrip jahat
+    function escapeHtml(text) {
+        return text.replace(/[&<>"']/g, function(m) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+        });
+    }
+
+    // Tampilkan ucapan saat halaman pertama kali dimuat
+    tampilkanUcapan();
+
+    // 2. Tangani event saat form dikirim
+    formUcapan.addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah reload halaman
+
+        const nama = inputNama.value.trim();
+        const pesan = inputPesan.value.trim();
+
+        if (nama && pesan) {
+            // Ambil data lama dari localStorage
+            const daftarData = JSON.parse(localStorage.getItem('ucapanTamu')) || [];
+            
+            // Tambahkan ucapan baru
+            daftarData.push({ nama: nama, pesan: pesan });
+
+            // Simpan kembali ke localStorage
+            localStorage.getItem
+            localStorage.setItem('ucapanTamu', JSON.stringify(daftarData));
+
+            // Reset input form
+            inputNama.value = '';
+            inputPesan.value = '';
+
+            // Render ulang daftar ucapan
+            tampilkanUcapan();
+            alert('Terima kasih, ucapan Anda telah terkirim!');
+        }
+    });
+});
 </script>
 
 </body>
