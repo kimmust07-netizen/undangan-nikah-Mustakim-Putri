@@ -568,7 +568,7 @@ h1, h2, h3 {
 
             <div id="daftar-ucapan">
                 <ul id="list-ucapan">
-                    <li style="text-align:center; color:#786957;">Memuat ucapan...</li>
+                    <li style="text-align:center; color:#786957; list-style:none;">Memuat ucapan...</li>
                 </ul>
             </div>
         </div>
@@ -634,7 +634,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (namaTamu) {
         const namaFormatted = decodeURIComponent(namaTamu);
         document.getElementById("nama-tamu").textContent = namaFormatted;
-        // Otomatis mengisikan input nama di form ucapan
+        // Otomatis mengisikan nama tamu ke input form
         document.getElementById("nama").value = namaFormatted;
     }
 
@@ -651,10 +651,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // -------------------------------------------------------------
-    // INTEGRASI GOOGLE SHEETS
+    // INTEGRASI GOOGLE SHEETS (BERSIH DARI ENTER / SPASI TERSEMBUNYI)
     // -------------------------------------------------------------
-    // TEMPELKAN URL WEB APP DARI STEPS 1 DI BAWAH INI:
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyakgyVeGUS2gfG9pPE7wu5pinumOh8J5S19u4ku4pTZDBK3zpLXOhS9_0X-jXi_mab/exec ";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyakgyVeGUS2gfG9pPE7wu5pinumOh8J5S19u4ku4pTZDBK3zpLXOhS9_0X-jXi_mab/exec";
 
     const formUcapan = document.getElementById('form-ucapan');
     const inputNama = document.getElementById('nama');
@@ -668,7 +667,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Fungsi membaca data dari Google Sheets
+    // Fungsi membaca data ucapan dari Google Sheets
     function muatUcapan() {
         fetch(SCRIPT_URL)
             .then(response => response.json())
@@ -676,11 +675,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 listUcapan.innerHTML = '';
                 
                 if (!data || data.length === 0) {
-                    listUcapan.innerHTML = '<li style="text-align:center; color:#786957;">Belum ada ucapan. Silakan berikan ucapan pertama!</li>';
+                    listUcapan.innerHTML = '<li style="text-align:center; color:#786957; list-style:none;">Belum ada ucapan. Silakan berikan ucapan pertama!</li>';
                     return;
                 }
 
-                // Tampilkan data urut dari yang paling baru
+                // Tampilkan data terurut dari yang paling baru
                 data.reverse().forEach(item => {
                     const li = document.createElement('li');
                     li.className = 'item-ucapan';
@@ -690,14 +689,14 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => {
                 console.error("Gagal memuat data:", error);
-                listUcapan.innerHTML = '<li style="text-align:center; color:red;">Gagal memuat ucapan. Harap periksa koneksi.</li>';
+                listUcapan.innerHTML = '<li style="text-align:center; color:red; list-style:none;">Gagal memuat ucapan. Harap periksa koneksi atau izin Google Apps Script.</li>';
             });
     }
 
-    // Jalankan pembacaan data saat halaman dimuat
+    // Panggil data ucapan saat halaman dimuat
     muatUcapan();
 
-    // Fungsi kirim ucapan ke Google Sheets
+    // Fungsi pengiriman ucapan ke Google Sheets
     formUcapan.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -728,8 +727,8 @@ document.addEventListener("DOMContentLoaded", function() {
             btnKirim.disabled = false;
             btnKirim.textContent = 'Kirim Ucapan';
             
-            // Beri jeda 1 detik agar data masuk ke sheet baru di-refresh
-            setTimeout(muatUcapan, 1000);
+            // Beri jeda 1.5 detik agar Google Sheets selesai menulis data baru
+            setTimeout(muatUcapan, 1500);
         })
         .catch(error => {
             console.error("Error kirim ucapan:", error);
