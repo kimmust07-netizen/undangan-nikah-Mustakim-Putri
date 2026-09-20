@@ -339,7 +339,39 @@ h1, h2, h3 {
     .names h2 {
         font-size: 42px;
     }
+
+    #countdown-container {
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
 }
+
+#timer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+#timer div {
+  background: #f4f4f4;
+  padding: 10px 15px;
+  border-radius: 8px;
+  min-width: 60px;
+}
+
+#timer span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+#timer p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+}    
 </style>
 </head>
 
@@ -524,6 +556,16 @@ h1, h2, h3 {
             <small>Mochammad Mustakim <br> Bank BCA</small>
         </div>
     </div>
+
+    <div id="countdown-container">
+  <h2>Menghitung Hari Resepsi</h2>
+  <div id="timer">
+    <div><span id="days">00</span><p>Hari</p></div>
+    <div><span id="hours">00</span><p>Jam</p></div>
+    <div><span id="minutes">00</span><p>Menit</p></div>
+    <div><span id="seconds">00</span><p>Detik</p></div>
+  </div>
+</div>
 </section>
 
 <!-- FOOTER -->
@@ -656,6 +698,32 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+  // Set tanggal dan waktu resepsi Anda di sini (Format: YYYY-MM-DDTHH:mm:ss)
+  const targetDate = new Date("2026-09-27T13:00:00").getTime();
+
+  const countdownFunction = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Kalkulasi waktu
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Tampilkan hasil ke elemen HTML
+    if (distance > 0) {
+      document.getElementById("days").innerText = String(days).padStart(2, '0');
+      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    } else {
+      clearInterval(countdownFunction);
+      document.getElementById("countdown-container").innerHTML = "<h3>Hari Resepsi telah Tiba!</h3>";
+    }
+  }, 1000);
+   
 </script>
 
 </body>
