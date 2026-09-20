@@ -634,7 +634,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (namaTamu) {
         const namaFormatted = decodeURIComponent(namaTamu);
         document.getElementById("nama-tamu").textContent = namaFormatted;
-        // Otomatis mengisikan nama tamu ke input form
         document.getElementById("nama").value = namaFormatted;
     }
 
@@ -651,7 +650,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // -------------------------------------------------------------
-    // INTEGRASI GOOGLE SHEETS (BERSIH DARI ENTER / SPASI TERSEMBUNYI)
+    // INTEGRASI GOOGLE SHEETS
     // -------------------------------------------------------------
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyakgyVeGUS2gfG9pPE7wu5pinumOh8J5S19u4ku4pTZDBK3zpLXOhS9_0X-jXi_mab/exec";
 
@@ -669,28 +668,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Fungsi membaca data ucapan dari Google Sheets
     function muatUcapan() {
-        fetch(SCRIPT_URL)
-            .then(response => response.json())
-            .then(data => {
-                listUcapan.innerHTML = '';
-                
-                if (!data || data.length === 0) {
-                    listUcapan.innerHTML = '<li style="text-align:center; color:#786957; list-style:none;">Belum ada ucapan. Silakan berikan ucapan pertama!</li>';
-                    return;
-                }
+        fetch(SCRIPT_URL, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Gagal mengakses API Google Script');
+            }
+            return response.json();
+        })
+        .then(data => {
+            listUcapan.innerHTML = '';
+            
+            if (!data || data.length === 0) {
+                listUcapan.innerHTML = '<li style="text-align:center; color:#786957; list-style:none;">Belum ada ucapan. Silakan berikan ucapan pertama!</li>';
+                return;
+            }
 
-                // Tampilkan data terurut dari yang paling baru
-                data.reverse().forEach(item => {
-                    const li = document.createElement('li');
-                    li.className = 'item-ucapan';
-                    li.innerHTML = `<strong>${escapeHtml(item.nama)}</strong><p>${escapeHtml(item.pesan)}</p>`;
-                    listUcapan.appendChild(li);
-                });
-            })
-            .catch(error => {
-                console.error("Gagal memuat data:", error);
-                listUcapan.innerHTML = '<li style="text-align:center; color:red; list-style:none;">Gagal memuat ucapan. Harap periksa koneksi atau izin Google Apps Script.</li>';
+            // Tampilkan data terurut dari yang paling baru
+            data.reverse().forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'item-ucapan';
+                li.innerHTML = `<strong>${escapeHtml(item.nama)}</strong><p>${escapeHtml(item.pesan)}</p>`;
+                listUcapan.appendChild(li);
             });
+        })
+        .catch(error => {
+            console.error("Gagal memuat data:", error);
+            listUcapan.innerHTML = '<li style="text-align:center; color:red; list-style:none;">Gagal memuat ucapan. Harap periksa izin Google Apps Script.</li>';
+        });
     }
 
     // Panggil data ucapan saat halaman dimuat
