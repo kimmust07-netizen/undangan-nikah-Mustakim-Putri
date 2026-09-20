@@ -240,13 +240,6 @@ h1, h2, h3 {
     padding: 20px;
 }
 
-.gallery-note {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 13px;
-    color: #786957;
-}
-
 .story {
     background: #3e3026;
     color: white;
@@ -279,6 +272,98 @@ h1, h2, h3 {
     background: #70563d;
     color: white;
     text-decoration: none;
+}
+
+/* STYLING KARTU UCAPAN */
+#kartu-ucapan {
+    background: #faf7f1;
+    text-align: center;
+}
+
+.ucapan-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #eee5d7;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+#form-ucapan {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+#form-ucapan input,
+#form-ucapan textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #c3b5a3;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #ffffff;
+    color: #3d3027;
+}
+
+#form-ucapan textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#form-ucapan button {
+    padding: 12px;
+    background: #70563d;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#form-ucapan button:hover {
+    background: #543f2c;
+}
+
+#form-ucapan button:disabled {
+    background: #a39281;
+    cursor: not-allowed;
+}
+
+#daftar-ucapan {
+    text-align: left;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+#list-ucapan {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item-ucapan {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #70563d;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.item-ucapan strong {
+    color: #70563d;
+    font-size: 15px;
+}
+
+.item-ucapan p {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #4a3e35;
+    white-space: pre-line;
 }
 
 .gift {
@@ -339,76 +424,28 @@ h1, h2, h3 {
     .names h2 {
         font-size: 42px;
     }
-
-    #countdown-container {
-  text-align: center;
-  font-family: sans-serif;
-  padding: 20px;
 }
-
-#timer {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-#timer div {
-  background: #f4f4f4;
-  padding: 10px 15px;
-  border-radius: 8px;
-  min-width: 60px;
-}
-
-#timer span {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #333;
-}
-
-#timer p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #666;
-}
-}    
 </style>
 </head>
 
-<!-- Menambahkan class no-scroll secara langsung saat halaman pertama diproses -->
 <body class="no-scroll">
 
 <!-- COVER -->
 <section class="cover" id="home">
     <div class="cover-content">
-
-        <div class="small-title">
-            The Wedding Of
-        </div>
-
-        <h1 class="script">
-            Putri
-        </h1>
-
+        <div class="small-title">The Wedding Of</div>
+        <h1 class="script">Putri</h1>
         <div class="amp">&</div>
-
-        <h1 class="script">
-            Mustakim
-        </h1>
-
+        <h1 class="script">Mustakim</h1>
         <div class="cover-date">
-            Resepsi
-            AHAD • 27 SEPTEMBER 2026
+            Resepsi<br>AHAD • 27 SEPTEMBER 2026
         </div>
 
         <section id="salam" style="padding: 20px 0;">
             <h2>Kepada Yth, <span id="nama-tamu">Tamu Undangan</span></h2>
         </section>
 
-        <a href="#undangan" class="open-btn" id="btn-buka">
-            Buka Undangan
-        </a>
-
+        <a href="#undangan" class="open-btn" id="btn-buka">Buka Undangan</a>
     </div>
 </section>
 
@@ -421,32 +458,22 @@ h1, h2, h3 {
         </div>
 
         <p class="quote">
-            Dengan memohon rahmat dan ridho Allah SWT,
-            kami bermaksud menyelenggarakan pernikahan
-            putra-putri kami.
+            Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami.
         </p>
 
         <div class="divider"></div>
 
         <div class="names">
-            <h2 class="script">
-                Eka Putri Dewi Prastika
-            </h2>
-
+            <h2 class="script">Eka Putri Dewi Prastika</h2>
             <p class="parent">
-                Putri dari Bapak Legiman (Alm.)<br>
-                & Ibu Misiya
+                Putri dari Bapak Legiman (Alm.)<br>& Ibu Misiya
             </p>
 
             <div class="amp">&</div>
 
-            <h2 class="script">
-                Mochammad Mustakim
-            </h2>
-
+            <h2 class="script">Mochammad Mustakim</h2>
             <p class="parent">
-                Putra dari Bapak Dardiri (Alm.)<br>
-                & Ibu Ponimah
+                Putra dari Bapak Dardiri (Alm.)<br>& Ibu Ponimah
             </p>
         </div>
     </div>
@@ -461,7 +488,6 @@ h1, h2, h3 {
         </div>
 
         <div class="events">
-            <!-- AKAD -->
             <div class="event-card">
                 <h3>Akad Nikah</h3>
                 <div class="date">Sabtu, 26 September 2026</div>
@@ -471,7 +497,6 @@ h1, h2, h3 {
                 <a class="map-btn" href="https://maps.app.goo.gl/HQbMqdsWh6MJp8GS7" target="_blank">📍 Buka Google Maps</a>
             </div>
 
-            <!-- RESEPSI -->
             <div class="event-card">
                 <h3>Resepsi</h3>
                 <div class="date">Minggu, 27 September 2026</div>
@@ -526,17 +551,27 @@ h1, h2, h3 {
     </div>
 </section>
 
+<!-- KARTU UCAPAN -->
 <section id="kartu-ucapan">
-    <h2>Kirim Kartu Ucapan</h2>
-    <form id="form-ucapan">
-        <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
-        <textarea id="pesan" name="pesan" placeholder="Tulis ucapan Anda..." required></textarea>
-        <button type="submit">Kirim Ucapan</button>
-    </form>
+    <div class="container">
+        <div class="section-title">
+            <div class="script">Warm Wishes</div>
+            <h2>Kartu Ucapan & Doa</h2>
+        </div>
 
-    <div id="daftar-ucapan">
-        <h3>Ucapan dari Tamu</h3>
-        <ul id="list-ucapan"></ul>
+        <div class="ucapan-box">
+            <form id="form-ucapan">
+                <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+                <textarea id="pesan" name="pesan" placeholder="Tuliskan ucapan & doa restu Anda di sini..." required></textarea>
+                <button type="submit" id="btn-kirim">Kirim Ucapan</button>
+            </form>
+
+            <div id="daftar-ucapan">
+                <ul id="list-ucapan">
+                    <li style="text-align:center; color:#786957;">Memuat ucapan...</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -556,16 +591,6 @@ h1, h2, h3 {
             <small>Mochammad Mustakim <br> Bank BCA</small>
         </div>
     </div>
-
-    <div id="countdown-container">
-  <h2>Menghitung Hari Resepsi</h2>
-  <div id="timer">
-    <div><span id="days">00</span><p>Hari</p></div>
-    <div><span id="hours">00</span><p>Jam</p></div>
-    <div><span id="minutes">00</span><p>Menit</p></div>
-    <div><span id="seconds">00</span><p>Detik</p></div>
-  </div>
-</div>
 </section>
 
 <!-- FOOTER -->
@@ -602,128 +627,118 @@ function toggleMusic() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Ambil Parameter Nama Tamu dari URL
+    // Parameter Nama Tamu & Buka Undangan
     const params = new URLSearchParams(window.location.search);
-    const nama = params.get("nama");
+    const namaTamu = params.get("nama");
 
-    if (nama) {
-        document.getElementById("nama-tamu").textContent = decodeURIComponent(nama);
+    if (namaTamu) {
+        const namaFormatted = decodeURIComponent(namaTamu);
+        document.getElementById("nama-tamu").textContent = namaFormatted;
+        // Otomatis mengisikan input nama di form ucapan
+        document.getElementById("nama").value = namaFormatted;
     }
 
-    // Event Listener Klik Tombol Buka Undangan
     const tombolBuka = document.getElementById('btn-buka');
-
     tombolBuka.addEventListener('click', function(e) {
         e.preventDefault();
-
-        // 1. Lepas kunci scroll
         document.body.classList.remove('no-scroll');
-
-        // 2. Mainkan musik secara otomatis
         if (!playing) {
             toggleMusic();
         }
-
-        // 3. Gulir halaman secara halus ke bagian isi undangan
         document.getElementById('undangan').scrollIntoView({
             behavior: 'smooth'
         });
     });
-});
 
-    document.addEventListener("DOMContentLoaded", function() {
-    // 1. Ambil elemen yang dibutuhkan
+    // -------------------------------------------------------------
+    // INTEGRASI GOOGLE SHEETS
+    // -------------------------------------------------------------
+    // TEMPELKAN URL WEB APP DARI STEPS 1 DI BAWAH INI:
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyakgyVeGUS2gfG9pPE7wu5pinumOh8J5S19u4ku4pTZDBK3zpLXOhS9_0X-jXi_mab/exec ";
+
     const formUcapan = document.getElementById('form-ucapan');
     const inputNama = document.getElementById('nama');
     const inputPesan = document.getElementById('pesan');
+    const btnKirim = document.getElementById('btn-kirim');
     const listUcapan = document.getElementById('list-ucapan');
 
-    // Function untuk menampilkan daftar ucapan dari localStorage
-    function tampilkanUcapan() {
-        listUcapan.innerHTML = '';
-        const daftarData = JSON.parse(localStorage.getItem('ucapanTamu')) || [];
-        
-        if (daftarData.length === 0) {
-            listUcapan.innerHTML = '<li style="list-style:none; opacity:0.7;">Belum ada ucapan. Silakan jadi yang pertama!</li>';
-            return;
-        }
-
-        daftarData.reverse().forEach(item => {
-            const li = document.createElement('li');
-            li.style.marginBottom = '12px';
-            li.style.listStyle = 'none';
-            li.style.background = '#eee5d7';
-            li.style.padding = '10px 15px';
-            li.style.borderRadius = '8px';
-            li.innerHTML = `<strong>${escapeHtml(item.nama)}</strong><br><p style="margin-top:4px;">${escapeHtml(item.pesan)}</p>`;
-            listUcapan.appendChild(li);
-        });
-    }
-
-    // Helper untuk cegah XSS/Skrip jahat
     function escapeHtml(text) {
-        return text.replace(/[&<>"']/g, function(m) {
+        return String(text).replace(/[&<>"']/g, function(m) {
             return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
         });
     }
 
-    // Tampilkan ucapan saat halaman pertama kali dimuat
-    tampilkanUcapan();
+    // Fungsi membaca data dari Google Sheets
+    function muatUcapan() {
+        fetch(SCRIPT_URL)
+            .then(response => response.json())
+            .then(data => {
+                listUcapan.innerHTML = '';
+                
+                if (!data || data.length === 0) {
+                    listUcapan.innerHTML = '<li style="text-align:center; color:#786957;">Belum ada ucapan. Silakan berikan ucapan pertama!</li>';
+                    return;
+                }
 
-    // 2. Tangani event saat form dikirim
+                // Tampilkan data urut dari yang paling baru
+                data.reverse().forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'item-ucapan';
+                    li.innerHTML = `<strong>${escapeHtml(item.nama)}</strong><p>${escapeHtml(item.pesan)}</p>`;
+                    listUcapan.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error("Gagal memuat data:", error);
+                listUcapan.innerHTML = '<li style="text-align:center; color:red;">Gagal memuat ucapan. Harap periksa koneksi.</li>';
+            });
+    }
+
+    // Jalankan pembacaan data saat halaman dimuat
+    muatUcapan();
+
+    // Fungsi kirim ucapan ke Google Sheets
     formUcapan.addEventListener('submit', function(e) {
-        e.preventDefault(); // Mencegah reload halaman
+        e.preventDefault();
 
         const nama = inputNama.value.trim();
         const pesan = inputPesan.value.trim();
 
-        if (nama && pesan) {
-            // Ambil data lama dari localStorage
-            const daftarData = JSON.parse(localStorage.getItem('ucapanTamu')) || [];
-            
-            // Tambahkan ucapan baru
-            daftarData.push({ nama: nama, pesan: pesan });
+        if (!nama || !pesan) return;
 
-            // Simpan kembali ke localStorage
-            localStorage.getItem
-            localStorage.setItem('ucapanTamu', JSON.stringify(daftarData));
+        btnKirim.disabled = true;
+        btnKirim.textContent = 'Mengirim...';
 
-            // Reset input form
-            inputNama.value = '';
+        const payload = {
+            nama: nama,
+            pesan: pesan
+        };
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(() => {
+            alert('Terima kasih! Ucapan Anda telah terkirim.');
             inputPesan.value = '';
-
-            // Render ulang daftar ucapan
-            tampilkanUcapan();
-            alert('Terima kasih, ucapan Anda telah terkirim!');
-        }
+            btnKirim.disabled = false;
+            btnKirim.textContent = 'Kirim Ucapan';
+            
+            // Beri jeda 1 detik agar data masuk ke sheet baru di-refresh
+            setTimeout(muatUcapan, 1000);
+        })
+        .catch(error => {
+            console.error("Error kirim ucapan:", error);
+            alert('Gagal mengirim ucapan, silakan coba lagi.');
+            btnKirim.disabled = false;
+            btnKirim.textContent = 'Kirim Ucapan';
+        });
     });
 });
-
-  // Set tanggal dan waktu resepsi Anda di sini (Format: YYYY-MM-DDTHH:mm:ss)
-  const targetDate = new Date("2026-09-27T13:00:00").getTime();
-
-  const countdownFunction = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    // Kalkulasi waktu
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Tampilkan hasil ke elemen HTML
-    if (distance > 0) {
-      document.getElementById("days").innerText = String(days).padStart(2, '0');
-      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-    } else {
-      clearInterval(countdownFunction);
-      document.getElementById("countdown-container").innerHTML = "<h3>Hari Resepsi telah Tiba!</h3>";
-    }
-  }, 1000);
-   
 </script>
 
 </body>
